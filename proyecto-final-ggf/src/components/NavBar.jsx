@@ -1,8 +1,18 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Link, useNavigate  } from "react-router-dom";
 
 const NavBar = ()=> {
+
+    const navigate = useNavigate();
+    const isAuth = localStorage.getItem('auth') === 'true';
+
+    const cerrarSesion = () => 
+        {
+        localStorage.removeItem('auth');
+        navigate('/login');
+    };
+
     return (
         <Navbar bg="dark" variant="dark" expand='lg' fixed="top"> 
             <Container>
@@ -14,6 +24,17 @@ const NavBar = ()=> {
                         <Nav.Link as={Link} to={'/about'}>About</Nav.Link>
                         <Nav.Link as={Link} to={'/contact'}>Contact</Nav.Link>
                         <Nav.Link as={Link} to={'/shopping-cart'}>🛒</Nav.Link>
+                    </Nav>
+                    <Nav className="ms-auto">
+                        {!isAuth ? (
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                        ) : (
+                            <div className="d-flex flex-row">
+                                <Nav.Link as={Link} to="/admin" className="login-button">Admin</Nav.Link>
+                                <Nav.Link className="log-out-button" onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
+                            </div>
+                        )}
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>
