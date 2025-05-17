@@ -7,7 +7,7 @@ const About=()=>
     {
         return(
             <Container className="mt-4">
-                <h1>About</h1>
+                <h1>Sobre Nosotros</h1>
                 <p>Pagina de about de la aplicacion</p>
             </Container>
         );

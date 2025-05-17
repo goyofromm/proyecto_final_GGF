@@ -3,14 +3,32 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import '../App.css'
 import ProductsList from '../components/ProductsList'
+import Swal from 'sweetalert2';
+
 
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    localStorage.setItem('auth', 'true');
-    navigate('/admin');
+    const validateEntry = () => {
+        const emailInput = document.getElementById('inputEmail').value?.trim();
+        const passInput = document.getElementById('inputPassword').value.trim();
+
+        return emailInput.length >= 1 && passInput.length >= 1;
+    };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if(validateEntry()){
+        localStorage.setItem('auth', 'true');
+        navigate('/admin');
+    }
+    else{
+        Swal.fire({
+            title: 'Usuario o contraseña inválidos',        
+        })
+    }
+    
   };
 
     return (
