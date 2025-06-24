@@ -11,7 +11,7 @@ const ProductsList = ({ productos, addToCart, deleteFromCart }) => {
             <Col md={4} key={index} className="mb-4 d-flex">
               <Card className="card-fixed">
                 <Card.Img variant="top" src={prod.image} className="card-img-top" />
-                <Card.Body classNazme="d-flex flex-column justify-content-between">
+                <Card.Body className="d-flex flex-column justify-content-between">
                   <Card.Title>{prod.title}</Card.Title>
                   <Card.Subtitle className="card-price">${prod.price}</Card.Subtitle>
                   <Card.Text className="card-text">{prod.description}</Card.Text>
