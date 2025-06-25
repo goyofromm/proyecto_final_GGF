@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Admin from './pages/Admin';
 import ProtectedRoute from './components/ProtectedRoute';
 import { carritoContext } from "./context/CarritoContext";
+import { AuthProvider } from './context/AuthContext';
 
 
 function App() {
@@ -30,20 +31,22 @@ function App() {
 
 return (
   <div className="d-flex flex-column min-vh-100" style={{ paddingTop: '50px' }}>
-    <BrowserRouter>
-      <NavBar />
-      <div className="flex-grow-1">
-        <Routes>
-          <Route path='/' element={<Home productos={productos}/>} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/shopping-cart' element={<ShoppingCart/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/admin' element={<ProtectedRoute><Admin/></ProtectedRoute>} />
-        </Routes>
-      </div>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <NavBar />
+        <div className="flex-grow-1">
+          <Routes>
+            <Route path='/' element={<Home productos={productos}/>} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/shopping-cart' element={<ShoppingCart/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/admin' element={<ProtectedRoute><Admin/></ProtectedRoute>} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   </div>
 );
 

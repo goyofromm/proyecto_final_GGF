@@ -4,23 +4,25 @@ import { useNavigate } from "react-router-dom";
 import '../App.css'
 import ProductsList from '../components/ProductsList'
 import Swal from 'sweetalert2';
+import { useAuthContext } from "../context/AuthContext";
 
 
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuthContext();
 
     const validateEntry = () => {
         const emailInput = document.getElementById('inputEmail').value?.trim();
         const passInput = document.getElementById('inputPassword').value.trim();
-
         return emailInput.length >= 1 && passInput.length >= 1;
     };
 
   const handleLogin = (event) => {
     event.preventDefault();
     if(validateEntry()){
-        localStorage.setItem('auth', 'true');
+        const email = document.getElementById('inputEmail').value?.trim();
+        login(email) 
         navigate('/admin');
     }
     else{
