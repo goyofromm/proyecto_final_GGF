@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { Navbar, Nav, Container, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import './css/cards.css'
 import ProductsList from "./ProductsList";
-import { carritoContext } from "../context/CarritoContext";
+import { CarritoContext } from "../context/CarritoContext";
 
 
 const ShoppingCart = () => {
-  const {productosCarrito, eliminarDelCarrito} = useContext(carritoContext)
+  const {productosCarrito, eliminarDelCarrito} = useContext(CarritoContext)
     return (
       <Container className="mt-4">
         <h1>Carrito de compras actual</h1>
