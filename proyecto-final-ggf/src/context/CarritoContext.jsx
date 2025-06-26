@@ -1,7 +1,7 @@
 import {createContext, useState} from 'react'
 import Swal from 'sweetalert2';
 
-export const carritoContext = createContext();
+export const CarritoContext = createContext();
 
   const showAlertMessage = (message, icon)=> {
     Swal.fire({
@@ -38,8 +38,8 @@ export function CarritoProvider({children}){
   } 
 
   return(
-    <carritoContext.Provider value={{ productosCarrito, agregarAlCarrito, eliminarDelCarrito}}>
+    <CarritoContext.Provider value={{ productosCarrito, agregarAlCarrito, eliminarDelCarrito}}>
       {children}
-    </carritoContext.Provider>
+    </CarritoContext.Provider>
   )
 }

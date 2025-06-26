@@ -2,11 +2,13 @@ import {React, useContext} from "react";
 import { Container } from "react-bootstrap";
 import '../App.css'
 import ProductsList from '../components/ProductsList'
-import { carritoContext } from "../context/CarritoContext";
+import { CarritoContext } from "../context/CarritoContext";
+import { ProductContext } from "../context/ProductContext";
 
 
-const Home = ({productos}) => {
-    const {agregarAlCarrito} = useContext(carritoContext)
+const Home = () => {
+    const {agregarAlCarrito} = useContext(CarritoContext)
+    const {productos} = useContext(ProductContext)
     return (
       <Container className="mt-4">
         <h1>Todos los productos</h1>
