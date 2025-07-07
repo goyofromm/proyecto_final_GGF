@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { toast } from 'react-toastify';
 
 const CreateProduct = ({ show, setShow, crearProducto }) => {
   const [errores, setErrores] = useState({})
@@ -17,6 +18,7 @@ const CreateProduct = ({ show, setShow, crearProducto }) => {
 
   const handleCrear = () => {
     if (validarProducto(nuevoProducto)) {
+      if(!nuevoProducto.image) nuevoProducto.image = 'https://picsum.photos/400'
       crearProducto(nuevoProducto);
       setShow(false);
       setNuevoProducto({ title: '', price: '', description: '', image: '' });

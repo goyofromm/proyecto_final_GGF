@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import { toast } from 'react-toastify';
 
 const DeleteProduct = ({
   show,
@@ -11,7 +12,7 @@ const DeleteProduct = ({
 
   const handleEliminar = () => {
     const ordenados = [...productosSeleccionados].sort((a, b) => b - a);
-    ordenados.forEach(index => eliminarProducto(index));
+    ordenados.forEach(index => eliminarProducto(productos[index].id));
     setProductosSeleccionados([]);
     setShow(false);
   };
