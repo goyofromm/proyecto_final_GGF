@@ -2,6 +2,7 @@ import {React} from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link, useNavigate  } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import escudo from './images/escudo-independiente.png';
 
 const NavBar = ()=> {
 
@@ -9,9 +10,16 @@ const NavBar = ()=> {
     const { user, logout } = useAuthContext();
 
     return (
-        <Navbar bg="dark" variant="dark" expand='lg' fixed="top"> 
+        <Navbar style={{ backgroundColor: '#8B0000' }} variant="dark" expand="lg" fixed="top">
             <Container>
-                <Navbar.Brand as={Link} to="/">Camisetas del rey!</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/"> 
+                <img
+                    src={escudo}
+                    alt="Escudo Independiente"
+                    height="40"
+                    style={{ marginRight: '8px' }}
+                />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

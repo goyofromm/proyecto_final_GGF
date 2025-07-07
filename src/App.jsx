@@ -10,11 +10,18 @@ import Admin from './pages/Admin';
 import ProtectedRoute from './components/ProtectedRoute';
 import { ProductProvider } from './context/ProductContext';
 import { AuthProvider } from './context/AuthContext';
+import bgIndependiente from './components/images/bg-independiente.png'
 
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100" style={{ paddingTop: '50px' }}>
+    <div className="d-flex flex-column min-vh-100" style={{
+    paddingTop: '50px',
+    backgroundImage: `url(${bgIndependiente})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'repeat'
+  }}>
       <AuthProvider>
         <ProductProvider>
           <BrowserRouter>
