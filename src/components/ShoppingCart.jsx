@@ -8,20 +8,21 @@ import { CarritoContext } from "../context/CarritoContext";
 const ShoppingCart = () => {
   const {productosCarrito, eliminarDelCarrito, limpiarCarrito} = useContext(CarritoContext)
     return (
-      <Container className="mt-4">
-        <h1>Carrito de compras actual</h1>
+      <Container className="mt-4 container-cart">
+        <h1 className="card-title">Carrito de compras 🛒</h1>
+        <Button
+          variant="danger"
+          className="h-auto"
+          hidden={productosCarrito.length === 0}
+          onClick={limpiarCarrito}>
+          Vaciar carrito
+        </Button>
         {productosCarrito.length === 0 ? (
-          <p className="card-text">El carrito está vacío.</p>
+          <p className="card-empty">El carrito está vacío.</p>
         ) : (
-          <div>
+          <div className="list-products">
               <ProductsList productos={productosCarrito} deleteFromCart={eliminarDelCarrito}/>
-              <Button
-                variant="danger"
-                className="h-auto"
-                disabled={productosCarrito.length === 0}
-                onClick={limpiarCarrito}>
-                Vaciar carrito
-              </Button>
+              
           </div>
         )}
 

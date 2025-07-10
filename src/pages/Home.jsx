@@ -10,9 +10,10 @@ const Home = () => {
     const {agregarAlCarrito} = useContext(CarritoContext)
     const {productos} = useContext(ProductContext)
     return (
-      <Container className="mt-4">
-        <ProductsList productos={productos} addToCart={agregarAlCarrito} />
-      </Container>
+        <Container className="mt-4">
+          <ProductsList productos={productos} addToCart={agregarAlCarrito} />
+        </Container>
+
     );
   };
   
