@@ -20,7 +20,8 @@ function App() {
     backgroundImage: `url(${bgIndependiente})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundRepeat: 'repeat'
+    backgroundRepeat: 'repeat',
+    backgroundAttachment: 'fixed'
   }}>
       <AuthProvider>
         <ProductProvider>
