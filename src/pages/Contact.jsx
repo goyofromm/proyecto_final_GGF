@@ -2,18 +2,19 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import '../App.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../components/css/cards.css'
 
 const Contact=()=>
     {
         return(
-            <Container className="mt-4">
-                <h1>Como podemos ayudarte?</h1>
-                <p style={{color:'#888'}}>Nos pondremos en contacto con usted a la brevedad</p>
-                <div class="mb-3">
+            <Container className="mt-4 container-cart">
+                <h1 className="card-title">Como podemos ayudarte?</h1>
+                <p className="card-text">Nos pondremos en contacto con usted a la brevedad</p>
+                <div className="contact-input">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email@ejemplo.com"/>
                 </div>
-                <div class="mb-3">
+                <div className="contact-input">
                     <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>

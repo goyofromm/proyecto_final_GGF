@@ -35,20 +35,32 @@ const Login = () => {
 
     return (
         <Container className="mt-4 py-5">
-        <div className="mx-auto p-4 bg-light rounded shadow" style={{ maxWidth: "500px" }}>
-            <form>
-            <div className="mb-3">
-                <label htmlFor="inputEmail" className="form-label">Email</label>
-                <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="inputPassword" className="form-label">Contraseña</label>
-                <input type="password" className="form-control" id="inputPassword" />
-            </div>
-            <button type="submit" className="btn btn-primary w-100" onClick={handleLogin}>Ingresar</button>
+          <div className="login-box mx-auto p-4 rounded shadow">
+            <form onSubmit={handleLogin} className="d-flex flex-column">
+              <div className="mb-3">
+                <label htmlFor="inputEmail" className="form-label text-white">Email</label>
+                <input                  
+                  className="input-underline"
+                  id="inputEmail"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="inputPassword" className="form-label text-white">Contraseña</label>
+                <input
+                  type="password"
+                  className="input-underline"
+                  id="inputPassword"
+                  required
+                />
+              </div>
+              <div className="d-flex">
+                <button type="submit" className="btn-login">Ingresar</button>
+              </div>
             </form>
-        </div>
+          </div>
         </Container>
+
     );
   };  
 export default Login;
